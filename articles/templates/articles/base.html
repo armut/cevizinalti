@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Cevizin Altı{% endblock %}</title>
+    </head>
+
+    <body>
+        <div class="title">
+        </div>
+
+        <div class="navigator">
+            {% block navigator %}{% endblock %}
+        </div>
+
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div class="footer">
+        </div>
+    </body>
+</html>
