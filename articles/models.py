@@ -8,6 +8,7 @@ class Post(models.Model):
     genre = models.CharField(max_length=30)
     title = models.CharField(max_length=200)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    view_count = models.PositiveIntegerField()
     slug = models.SlugField(max_length=200)
 
     def get_absolute_url(self):
@@ -19,6 +20,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     comment_text = models.TextField()
 
     def __str__(self):

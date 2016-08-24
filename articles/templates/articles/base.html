@@ -1,23 +1,41 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="{% static 'articles/login.js' %}"></script>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Cevizin Altı{% endblock %}</title>
     </head>
 
     <body>
         <div class="title">
+        {% if not user.is_authenticated %}
+            <div class="form">
+                <form id="login_form">{% csrf_token %}
+                    <input type="text" name="uid" id="uid">
+                    <input type="text" name="pass" id="pass">
+                    <input class="login_btn" type="button" value="LogIn">
+                </form>
+            </div>
         </div>
+        {% else %}
+            <div class="form">
+                <input class="logout_btn" type="button" value="LogOut">
+            </div>
+        {% endif %}
 
-        <div class="navigator">
-            {% block navigator %}{% endblock %}
-        </div>
 
-        <div class="content">
-            {% block content %}{% endblock %}
+        <div class="container" id="body">   
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
         </div>
 
         <div class="footer">
         </div>
     </body>
 </html>
+
+
