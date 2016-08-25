@@ -1,19 +1,28 @@
 {% extends 'articles/base.html' %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
-    <h1 style="text-align: center">{{ post.title }}</h1>
-    <hr>
-    <p>{{ post.author }}</p>
-    <hr>
-    <h4 class="bg-warning">{{ post.date }}</h4>
-    <h4>{{ post.genre }}</h4>
-    <hr>
-    <p>{{ post.content }}</p>
-    <hr>
-    {% for comment in comments %}
-        <hr>
-        <p>{{ comment.user.username }} has written these:</p>
-        <p>{{ comment.comment_text }}</p>
-        <hr>
-    {% endfor %}
+    <div class="post-title">
+        <h1 id="header">{{ post.title }}</h1>
+        <h4 id="author">{{ post.author }}, on {{ post.date }}</h4>
+        <h5 id="genre">{{ post.genre }}</h5>
+    </div>
+
+    <div class="cont">
+    <div class="post-body">
+        <p>{{ post.content }}</p>
+    </div>
+    <div class="f1">
+        <h3>Functional area</h3>
+        <p>Some</p>
+        <p>thing</p>
+        <p>useful</p>
+    </div>
+    </div>
+
+    <div class="post-comments">
+        {% for comment in comments %}
+            <p id="comment-header">{{ comment.user.username }} has written these:</p>
+            <p id="comment">&nbsp&nbsp&nbsp&nbsp{{ comment.comment_text }}</p>
+        {% endfor %}
+    </div>
 {% endblock %}
