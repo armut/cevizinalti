@@ -14,7 +14,7 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
-        context['posts'] = Post.objects.all()
+        context['posts'] = Post.objects.all().order_by('-view_count')
         return context
 
 class PostView(generic.DetailView):
@@ -59,6 +59,7 @@ def loginView(request):
         else:
             msg = "doğru şifre yanlış şey"
     else:
+        # needs something like login error page.
         msg = "ne kullanıcı adı ne de şifre doğru"
 
     return JsonResponse({"msg": msg})
