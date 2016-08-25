@@ -1,10 +1,10 @@
 function login() {
     $.ajax({
-        url: "login",
+        url: "/login",
         type: "POST",
         data: $("#login_form").serialize(),
         success: function() {
-            location.reload();
+            location.reload(true);
         },
         error: function(e) {
             alert("Olamaz beklenmedik bir hata vuku buldu.");
@@ -14,10 +14,10 @@ function login() {
 
 function logout() {
     $.ajax({
-        url: "logout",
+        url: "/logout",
         type: "POST",
         success: function() {
-            location.reload();
+            location.reload(true);
         },
         error: function() {
             alert("O hayır. Bu da ne?\n Nereden çıktı?\n Daha önce hiç görmemiştim.\n Kafamda binlerce soru.");

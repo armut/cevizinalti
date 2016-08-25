@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 
+from django.contrib.auth.models import User
 from articles.models import Post, Comment
 
 class HomePageView(TemplateView):
@@ -31,6 +32,18 @@ class PostView(generic.DetailView):
 
         most_popular = Post.objects.filter().order_by('-view_count')[0]
         context['most_popular_post'] = most_popular
+        return context
+
+class UserView(generic.DetailView):
+    template_name = "articles/user.html"
+    model = User
+    context_object_name = "user"
+
+    def get_context_data(self, **kwargs):
+        context = super(UserView, self).get_context_data(**kwargs)
+        context['user'] = self.object
+        context['posts'] = Post.objects.filter(author=self.object).order_by("-view_count")
+        context['comments'] = Comment.objects.filter(user=self.object)
         return context
 
 @require_http_methods(['POST'])

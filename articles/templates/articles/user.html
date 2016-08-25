@@ -1,0 +1,24 @@
+{% extends 'articles/base.html' %}
+{% block title %}{{ user.username }}'s page {% endblock %}
+
+{% block content %}
+    <h1 style="text-align: right">{{ user.username }}</h1>
+    <hr>
+    {% if posts %}
+        <h2>Your Posts:</h2>
+        {% for post in posts %}
+            <h3>{{ post.title }}</h3>
+            <i>{{ post.view_count }} views</i>
+            <p>{{ post.content }}</p>
+            <hr>
+        {% endfor %}
+    {% endif %}
+
+    {% if comments %}
+        <h2>Your Comments:</h2>
+        {% for comment in comments %}
+            <p>@{{ comment.post.title }} you wrote:</p>
+            <p>{{ comment.comment_text }}</p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -10,24 +10,21 @@
     </head>
 
     <body>
-        <div class="title">
-        {% if not user.is_authenticated %}
-            <div class="form">
+        <div class="form">
+            {% if not request.user.is_authenticated %}
                 <form id="login_form">{% csrf_token %}
                     <input type="text" name="uid" id="uid">
                     <input type="text" name="pass" id="pass">
                     <input class="login_btn" type="button" value="LogIn">
                 </form>
-            </div>
-        </div>
-        {% else %}
-            <div class="form">
+            {% else %}
                 <input class="logout_btn" type="button" value="LogOut">
-            </div>
-        {% endif %}
+                <a href="{% url 'articles:user' request.user.id  %}">{{ request.user.username }}</a>
+            {% endif %}
+        </div>
 
 
-        <div class="container" id="body">   
+        <div class="container">   
             <div class="content">
                 {% block content %}{% endblock %}
             </div>
