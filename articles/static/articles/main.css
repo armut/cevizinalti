@@ -28,16 +28,14 @@ body {
 #entree-rigth {
 }
 
-
-.title-container {
+.coasts {
     overflow: hidden;
-    margin-bottom: 5px;
 }
-.func-title {
-    max-width: 25%;
-    margin-left: 76%;
-    margin-top: 50px;
+div#westcoast {
+    max-width: 70%;
+    float: left;
 }
+
 .post-title {
     font-family: 'Lobster', cursive;
     font-size: 20px;
@@ -47,42 +45,50 @@ body {
     padding-left: 6px;
     margin-left: 100px;
     margin-top: 30px;
-    float: left;
-}
-
-.body-container {
-    display: inline-block;
-}
-.func {
-    max-width: 25%;
-    margin-left: 76%;
-    margin-bottom: 50px;
 }
 .post-body {
     font-family: 'Dosis', sans-serif;
-    max-width: 70%;
     font-size: 23px;
     margin-left: 15px;
     padding: 10px;
-    float:left;
 }
 
-.post-comments {
-    max-width: 550px;
-    padding: 5px;
-    border-radius: 6px;
-    overflow: hidden;
-    background-color: seaShell;
-    margin-left: 15%;
-    margin-bottom: 10px;
+div#eastcoast {
+    margin-left: 76%;
+    margin-right: 15px;
 }
-.comment-header {
-    padding-top: 1px;
-    border-radius: 6px;
-    font-size: 25px;
-    background-color: lavender;
-    color: darkSlateGray;
+.func {
+    margin-top: 40px;
+    margin-bottom: 160px;
+}
+
+.caption {
+    margin: 0;
+    padding: 0;
+    background-color: cornFlowerBlue;
+    text-align: center;
+}
+.caption-header {
+    padding: 10px;
+    font-size: 26px;
+    font-family: 'Lobster', cursive;
+}
+
+.comments-section {
+    margin: 0;
+    padding: 0;
+    background-color: cadetBlue;
 }
 .comment {
+    max-width: 550px;
+    background-color: seaShell;
+    margin-left: 5%;
+}
+.comment-header {
+    font-size: 23px;
+    font-family: 'Vollkorn', serif;
+}
+.message {
     font-size: 20px;
+    font-family: 'Dosis', sans-serif;
 }
