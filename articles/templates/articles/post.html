@@ -1,28 +1,49 @@
 {% extends 'articles/base.html' %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
-    <div class="post-title">
-        <h1 id="header">{{ post.title }}</h1>
-        <h4 id="author">{{ post.author }}, on {{ post.date }}</h4>
-        <h5 id="genre">{{ post.genre }}</h5>
+    <div class="title-container">
+        <div class="post-title">
+            <h1 id="header">{{ post.title }}</h1>
+            <h4 id="author">{{ post.author }}, on {{ post.date }}</h4>
+            <h5 id="genre">{{ post.genre }}</h5>
+        </div>
+        
+        <div class="func-title">
+            <h3>Functional area</h3>
+            <p>...</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. etiam nunc turpis.</p>
+        </div>
     </div>
 
-    <div class="cont">
-    <div class="post-body">
-        <p>{{ post.content }}</p>
-    </div>
-    <div class="f1">
-        <h3>Functional area</h3>
-        <p>Some</p>
-        <p>thing</p>
-        <p>useful</p>
-    </div>
+    <div class="body-container">
+        <div class="post-body">
+            <p>{{ post.content }}</p>
+        </div>
+        
+        <div class="func">
+            <h3>Functional area</h3>
+            <ul>
+                <li>Some</li>
+                <li>thing</li>
+                <li>useful</li>
+            </ul>
+        </div>
+        <div class="func">
+            <h3>Second Functional area</h3>
+            <p>Man, see how functional I am?</p>
+        </div>
+
+
     </div>
 
-    <div class="post-comments">
         {% for comment in comments %}
-            <p id="comment-header">{{ comment.user.username }} has written these:</p>
-            <p id="comment">&nbsp&nbsp&nbsp&nbsp{{ comment.comment_text }}</p>
-        {% endfor %}
+    <div class="post-comments">
+            <div class="comment-header">
+                <p><i>{{ comment.user.username }} has written these:</i></p>
+            </div>
+            <div class="comment">
+                <p>&nbsp&nbsp&nbsp&nbsp{{ comment.comment_text }}</p>
+            </div>
     </div>
+        {% endfor %}
 {% endblock %}

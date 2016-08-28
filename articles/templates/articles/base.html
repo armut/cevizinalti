@@ -2,9 +2,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="{% static 'articles/base-style.css' %}"/>
+        <!--<link rel="stylesheet" type="text/css" href="{% static 'articles/main.css' %}"/>-->
+        <link id="size-stylesheet" rel="stylesheet" type="text/css" href="{% static 'articles/small.css' %}"/>
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Dosis|Orbitron|Vollkorn" rel="stylesheet"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="{% static 'articles/login.js' %}"></script>
+        <script src="{% static 'articles/style.js' %}"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Cevizin Altı{% endblock %}</title>

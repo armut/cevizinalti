@@ -7,7 +7,7 @@ from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 
 from django.contrib.auth.models import User
-from articles.models import Post, Comment
+from articles.models import Genre, Post, Comment
 
 class HomePageView(TemplateView):
     template_name = "articles/home.html"
@@ -16,6 +16,19 @@ class HomePageView(TemplateView):
         context = super(HomePageView, self).get_context_data(**kwargs)
         context['posts'] = Post.objects.all().order_by('-view_count')
         return context
+
+
+class CategoryView(generic.DetailView):
+    template_name = "articles/genre.html"
+    model = Genre
+    context_object_name = "category";
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryView, self).get_context_data(**kwargs)
+        context['genre'] = self.object.name
+        context['posts'] = Post.objects.filter(genre=self.object).order_by('-view_count')
+        return context
+
 
 class PostView(generic.DetailView):
     template_name = "articles/post.html"
