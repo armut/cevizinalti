@@ -5,9 +5,29 @@ font-family: 'Dosis', sans-serif;
 font-family: 'Vollkorn', serif;
 */
 
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Vollkorn', serif;
+    margin: 0;
+    padding: 0;
 }
+
+#entree {
+    background-color: crimson;
+    margin: 0 auto;
+    height: 175px;
+}
+#entree-logo {
+}
+#entree-motto {
+}
+#entree-rigth {
+}
+
 
 .title-container {
     overflow: hidden;
