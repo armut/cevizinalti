@@ -1,52 +1,88 @@
-.title-container {
-    margin-bottom: 5px;
-}
-.func-title {
-    max-width: 25%;
-    margin-left: 76%;
-}
-.post-title {
-    font-size: 20px;
-    max-width: 570px;
-    max-height: 380px;
-    border-radius: 6px;
-    padding-left: 6px;
-    margin-left: 50px;
-    margin-top: 15px;
+html {
+    margin: 0;
+    padding: 0;
 }
 
-.body-container {
-    display: inline-block;
+body {
+    font-family: 'Vollkorn', serif;
+    margin: 0;
+    padding: 0;
 }
-.func {
-    max-width: 25%;
-    margin-left: 76%;
-    margin-bottom: 50px;
+
+#entree {
+    background-color: crimson;
+    margin: 0 auto;
+    height: 175px;
+}
+#entree-logo {
+}
+#entree-motto {
+}
+#entree-rigth {
+}
+
+.post-title {
+    font-family: 'Lobster', cursive;
+    font-size: 18px;
+    padding-left: 6px;
+    margin-left: 30px;
+    margin-top: 7px;
 }
 .post-body {
-    background-color: red;
-    max-width: 70%;
+    font-family: 'Dosis', sans-serif;
     font-size: 23px;
     margin-left: 15px;
-    padding: 10px;
-    float:left;
 }
 
-.post-comments {
-    max-width: 550px;
-    padding: 5px;
-    border-radius: 6px;
-    background-color: seaShell;
-    margin-left: 10px;;
-    margin-bottom: 10px;
+div#eastcoast {
 }
-.comment-header {
-    padding-top: 1px;
-    border-radius: 6px;
-    font-size: 25px;
-    background-color: lavender;
-    color: darkSlateGray;
+.func {
+    margin-left: 15%;
+    max-width: 240px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.caption {
+    padding: 1px;
+    background-color: cornFlowerBlue;
+    text-align: center;
+    margin-top: 10px;
+}
+.caption-header {
+    font-size: 26px;
+    font-family: 'Lobster', cursive;
+}
+
+.comments-section {
+    background-color: seaShell;
+    padding: 1px;
 }
 .comment {
-    font-size: 18px;
+    max-width: 550px;
+    margin-left: 2%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.comment-header {
+    font-family: 'Vollkorn', serif;
+    font-size: 20px;
+    margin-bottom: -20px;
+}
+.message {
+    font-size: 20px;
+    font-family: 'Dosis', sans-serif;
+    border: 2px solid crimson;
+    border-left: 8px solid crimson;
+}
+
+.footer {
+    padding: 1px;
+    background-color: black;
+    height: 175px;
+    text-align: center;
+}
+.h-footer {
+    color: white;
+    font-family: 'Dosis', sans-serif;
 }

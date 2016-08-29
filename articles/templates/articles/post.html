@@ -41,8 +41,7 @@
             {% for comment in comments %}
                 <div class="comment">
                     <div class="comment-header">
-                        <p><i>{{ comment.user.username }} has written these:</i></p>
-                        <hr>
+                        <p><i>{{ comment.user.username }}</i></p>
                     </div>
                     <div class="message">
                         <p>&nbsp&nbsp&nbsp&nbsp{{ comment.comment_text }}</p>
