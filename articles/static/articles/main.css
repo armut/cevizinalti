@@ -63,25 +63,22 @@ div#eastcoast {
 }
 
 .caption {
-    margin: 0;
-    padding: 0;
+    padding: 1px;
     background-color: cornFlowerBlue;
     text-align: center;
+    margin-top: 10px;
 }
 .caption-header {
-    padding: 10px;
     font-size: 26px;
     font-family: 'Lobster', cursive;
 }
 
 .comments-section {
-    margin: 0;
-    padding: 0;
-    background-color: cadetBlue;
+    background-color: khaki;
+    padding: 1px;
 }
 .comment {
     max-width: 550px;
-    background-color: seaShell;
     margin-left: 5%;
 }
 .comment-header {
@@ -90,5 +87,16 @@ div#eastcoast {
 }
 .message {
     font-size: 20px;
+    font-family: 'Dosis', sans-serif;
+}
+
+.footer {
+    padding: 1px;
+    background-color: black;
+    height: 175px;
+    text-align: center;
+}
+.h-footer {
+    color: white;
     font-family: 'Dosis', sans-serif;
 }
