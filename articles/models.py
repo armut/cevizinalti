@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class Genre(models.Model):
     name = models.CharField(max_length=100, db_index=True)
+    description = models.TextField()
     slug = models.SlugField(max_length=100, db_index=True)
 
     def get_absolute_url(self):
@@ -22,7 +23,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200)
 
     def get_absolute_url(self):
-        return reverse('articles:post', kwargs={'genre': self.genre.slug, 'slug': self.slug})
+        return reverse('articles:post', kwargs={'year': self.date.year, 'month': self.date.strftime('%m'), 'day': self.date.strftime('%d'), 'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -31,6 +32,7 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField()
     comment_text = models.TextField()
 
     def __str__(self):

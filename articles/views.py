@@ -26,7 +26,10 @@ class CategoryView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
         context['genre'] = self.object.name
+        context['genres'] = Genre.objects.all().exclude(name=self.object.name).order_by('name')
+        context['description'] = self.object.description
         context['posts'] = Post.objects.filter(genre=self.object).order_by('-view_count')
+        context['comments'] = Comment.objects.filter(post__genre=self.object)[:3]
         return context
 
 

@@ -39,8 +39,10 @@ div#eastcoast {
 .func {
     margin-left: 8%;
     max-width: 240px;
+    min-width: 230px;
     display: inline-block;
     vertical-align: top;
+    font-size: 18px;
 }
 
 .caption {

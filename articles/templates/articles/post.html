@@ -7,7 +7,7 @@
             <div class="post-title">
                 <h1 id="header">{{ post.title }}</h1>
                 <h4 id="author">{{ post.author }}, on {{ post.date }}</h4>
-                <h5 id="genre">{{ post.genre }}</h5>
+                <h5 id="genre"><a href="{{ post.genre.get_absolute_url }}">{{ post.genre }}</a></h5>
             </div>
 
             <div class="post-body">
@@ -41,10 +41,10 @@
             {% for comment in comments %}
                 <div class="comment">
                     <div class="comment-header">
-                        <p><i>{{ comment.user.username }}</i></p>
+                        <p><i>{{ comment.user.username }} <small>{{ comment.date.day }}/{{ comment.date.month }}/{{ comment.date.year }}</small></i></p>
                     </div>
                     <div class="message">
-                        <p>&nbsp&nbsp&nbsp&nbsp{{ comment.comment_text }}</p>
+                        <p>{{ comment.comment_text }}</p>
                     </div>
                 </div>
             {% endfor %}

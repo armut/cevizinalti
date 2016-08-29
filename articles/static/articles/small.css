@@ -37,12 +37,12 @@ body {
 }
 
 div#eastcoast {
+    padding: 15px;
 }
 .func {
-    margin-left: 15%;
-    max-width: 240px;
-    display: inline-block;
     vertical-align: top;
+    font-size: 23px;
+    margin-bottom: 30px;
 }
 
 .caption {

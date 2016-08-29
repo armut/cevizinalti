@@ -1,0 +1,44 @@
+{% extends 'articles/base.html' %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+    <div class="selamlik">
+        <h3>Wanna read something about {{ genre }} ?</h3>
+        <p>{{ description }}</p>
+    </div>
+
+    <div class="coasts">
+        <div id="westcoast">
+            {% for post in posts %}
+                <div class="post-preview">
+                    <a class="post-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    <small class="post-description">{{ post.author }} | {{ post.view_count }} views.</small>
+                    <p class="post-truncated">{{ post.content|truncatewords:40 }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div id="eastcoast">
+            <div class="func">
+                <h3>Other categories:</h3>
+                <ul>
+                {% for g in genres %}
+                    <li><a href="{{ g.get_absolute_url }}">{{ g.name }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+
+            {% if comments %}
+                <div class="func">
+                    <h3>Latest comments in this category:</h3>
+                    {% for comment in comments %}
+                        <p>{{ comment.comment_text }}<small><i>{{ comment.user.username }}</i></small></p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}
