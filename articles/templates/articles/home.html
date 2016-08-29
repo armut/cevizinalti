@@ -2,13 +2,40 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-    <h1 style="text-align: center">golB weN yM</h1>
-    {% for post in posts %}
-        <hr>
-        <h3>
-            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-            <small>{{ post.author }} {{ post.view_count }} views.</small>
-        </h3>
-        <hr>
-    {% endfor %}
-{% endblock %}
+
+    <div class="selamlik">
+        <h3 style="text-align: center">Welcome to my blog!</h3>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non ligula vitae nisl tempor sodales. Suspendisse ut commodo est. Mauris malesuada semper sem, at malesuada lacus pretium in. Cras laoreet velit sed ante molestie, in congue quam cursus. Duis sit amet nisi molestie, posuere dui ut, pharetra nulla. Fusce id efficitur ligula. Suspendisse potenti. Pellentesque vestibulum metus ac pellentesque luctus. Morbi eu est interdum, pretium nibh et, tempus dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis lacus metus, tempus et ultrices eget, fringilla id nunc. Sed rhoncus augue arcu, et ornare sapien ultrices at. Sed ac sodales purus. Fusce malesuada ipsum nec ipsum facilisis, quis tincidunt justo vestibulum. Nulla vitae pulvinar lorem. Sed consectetur lobortis ligula a egestas.
+
+        Maecenas id quam quis ante aliquam pulvinar in id urna. Suspendisse scelerisque vulputate nunc, non viverra velit suscipit eu. Morbi condimentum cursus quam vel euismod. Integer varius lectus eu tempus fermentum. Suspendisse vitae enim eu nibh euismod lobortis. Donec massa justo, finibus et fringilla eleifend, sagittis et orci. Quisque suscipit aliquet placerat. Maecenas fringilla nisl a enim sagittis tempus. Etiam purus dolor, viverra eu tellus vitae, aliquam auctor ipsum. Quisque ornare sagittis leo, ac condimentum felis faucibus blandit. </p>
+    </div>
+
+    <div class="coasts">
+        <div id="westcoast">
+             {% for post in posts %}
+                <div class="post-preview">
+                    <a class="post-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    <small class="post-description">{{ post.author }} | {{ post.view_count }} views.</small>
+                    <p class="post-truncated">{{ post.content|truncatewords:40 }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div id="eastcoast">
+            <div class="func">
+                <p>Most Popular</p>
+            </div>
+
+            <div class="func">
+                <p>Categories:</p>
+                <ul>
+                    <li>Books</li>
+                    <li>Movies</li>
+                    <li>Programming</li>
+                    <li>日本語</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    font-family: 'Vollkorn', serif;
+    font-family: 'Dosis', serif;
     margin: 0;
     padding: 0;
 }
@@ -105,3 +105,38 @@ div#eastcoast {
     color: white;
     font-family: 'Dosis', sans-serif;
 }
+
+
+
+/* home.html */
+.selamlik {
+    font-size: 20px;
+    padding: 15px;
+}
+
+.post-preview {
+    padding: 1px;
+    margin-left: 5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.post-link, .post-link:visited {
+    font-size: 3em;
+    color: black;
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+}
+.post-link:hover {
+    color: darkSlateBlue;
+    text-decoration: underline;
+}
+.post-description {
+    font-size: 14px;
+    font-style: italic;
+}
+.post-truncated {
+    font-size: 20px;
+    padding-left: 10px;
+    border-left: 4px solid sienna;
+}
+/* home.html */
