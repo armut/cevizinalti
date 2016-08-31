@@ -25,6 +25,15 @@
             </div>
         </div>
 
+        <div class="navbar">
+            <div class="navbar-menu">
+                <a class="navbar-item" href="{% url 'articles:home' %}">Home</a>
+                {% for genre in genres %}
+                    <a class="navbar-item" href="{{ genre.get_absolute_url }}">{{ genre.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
 
         {% if None %}
         <div class="form">

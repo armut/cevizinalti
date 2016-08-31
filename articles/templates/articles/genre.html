@@ -23,7 +23,7 @@
             <div class="func">
                 <h3>Other categories:</h3>
                 <ul>
-                {% for g in genres %}
+                {% for g in othergenres %}
                     <li><a href="{{ g.get_absolute_url }}">{{ g.name }}</a><small>({{ g.posts_in_this_genre }})</small></li>
                 {% endfor %}
                 </ul>

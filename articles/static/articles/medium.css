@@ -21,6 +21,36 @@ body {
 #entree-rigth {
 }
 
+/* navbar */
+.navbar {
+    background-color: peachpuff;
+    height: 50%;
+    padding: 1px;
+}
+.navbar-menu {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 75%;
+}
+.navbar-item {
+    border-bottom: 5px solid crimson;
+    display: inline-block;
+    margin-left: -4px;
+    margin-top: -5px;
+    background-color: #009999;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+.navbar-item:hover {
+    background-color: #600000;
+}
+/* navbar */
+
+.coasts {
+    padding: 40px;
+}
+
 .post-title {
     font-family: 'Lobster', cursive;
     font-size: 18px;
@@ -94,7 +124,7 @@ div#eastcoast {
 /* home.html */
 .selamlik {
     font-size: 20px;
-    padding: 15px;
+    padding: 50px;
 }
 
 .post-preview {

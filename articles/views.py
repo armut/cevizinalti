@@ -17,7 +17,7 @@ class HomePageView(TemplateView):
         context = super(HomePageView, self).get_context_data(**kwargs)
         context['posts'] = Post.objects.all().order_by('-date')
         context['popular_posts'] = Post.objects.all().order_by('-view_count')[:3]
-        context['genres'] = Genre.objects.annotate(posts_in_this_genre=Count('post'))
+        context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
         return context
 
 
@@ -29,7 +29,8 @@ class CategoryView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
         context['genre'] = self.object.name
-        context['genres'] = Genre.objects.all().exclude(name=self.object.name).annotate(posts_in_this_genre=Count('post')).order_by('name')
+        context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
+        context['othergenres'] = Genre.objects.all().exclude(name=self.object.name).annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['description'] = self.object.description
         context['posts'] = Post.objects.filter(genre=self.object).order_by('-view_count')
         context['comments'] = Comment.objects.filter(post__genre=self.object)[:3]
@@ -44,6 +45,7 @@ class PostView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(PostView, self).get_context_data(**kwargs)
         context['post'] = self.object
+        context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['comments'] = Comment.objects.filter(post=self.object)
 
         self.object.view_count += 1
@@ -62,6 +64,7 @@ class UserView(generic.DetailView):
         context = super(UserView, self).get_context_data(**kwargs)
         context['user'] = self.object
         context['posts'] = Post.objects.filter(author=self.object).order_by("-view_count")
+        context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['comments'] = Comment.objects.filter(user=self.object)
         return context
 
