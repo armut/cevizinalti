@@ -26,8 +26,20 @@ function logout() {
 }
 
 $(document).ready(function() {
+    
+    // Hide the login form except login button.
+    $("#uid").hide();
+    $("#pass").hide();
+
     $(".login_btn").click(function(e) {
-        login();
+        // If text inputs aren't visible, then show them once,
+        if( !($("#uid").is(":visible")) ) {
+            $("#uid").fadeIn();
+            $("#pass").show();
+        }
+        else { // If not, then ready to go.
+            login();
+        }
     });
 
     $(".logout_btn").click(function(e) {
