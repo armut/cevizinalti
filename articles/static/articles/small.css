@@ -21,13 +21,67 @@ img {
 }
 #entree-logo {
     margin: auto;
-    max-width: 250px;
+    max-width: 180px;
     padding: 10px;
 }
-#entree-motto {
+#entree-right {
+    text-align: right;
 }
-#entree-rigth {
+
+/* login form */
+.div-form {
 }
+#uid {
+    color: black;
+    background-color: white;
+    font-size: 12px;
+    border: none;
+    padding: 5px;
+    width: 100px;
+}
+#uid:focus {
+    border-bottom: 5px solid #990000;
+}
+#pass {
+    color: black;
+    background-color: white;
+    font-size: 12px;
+    border: none;
+    padding: 5px;
+    width: 100px;
+}
+#pass:focus {
+    border-bottom: 5px solid #990000;
+}
+.login_btn {
+    margin: 10px 10px 0 0;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 3px;
+}
+.login_btn:hover {
+    background-color: #990000;
+}
+.logout_btn {
+    margin: 10px 10px 0 0;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 3px;
+}
+.logout_btn:hover {
+    background-color: #990000;
+}
+#user-link {
+}
+/* login form */
 
 /* navbar */
 .navbar {

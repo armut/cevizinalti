@@ -21,12 +21,23 @@
                 </a>
             </div>
             
-            <div id="entree-motto">
-            </div>
 
             <div id="entree-right">
+                <div class="div-form">
+                    {% if not request.user.is_authenticated %}
+                        <form>{% csrf_token %}
+                            <input id="uid" type="text" name="uid" placeholder="Username">
+                            <input id="pass" type="text" name="pass" placeholder="Password">
+                            <input class="login_btn" type="button" value="LogIn">
+                        </form>
+                    {% else %}
+                        <a id="user-link" href="{% url 'articles:user' request.user.id  %}">{{ request.user.username }}</a>
+                        <input class="logout_btn" type="button" value="LogOut">
+                    {% endif %}
+                </div>
             </div>
         </div>
+
 
         <div class="navbar">
             <div class="navbar-menu">
@@ -49,22 +60,6 @@
 
             </div>
         </div>
-
-
-        {% if None %}
-        <div class="form">
-            {% if not request.user.is_authenticated %}
-                <form id="login_form">{% csrf_token %}
-                    <input type="text" name="uid" id="uid">
-                    <input type="text" name="pass" id="pass">
-                    <input class="login_btn" type="button" value="LogIn">
-                </form>
-            {% else %}
-                <input class="logout_btn" type="button" value="LogOut">
-                <a href="{% url 'articles:user' request.user.id  %}">{{ request.user.username }}</a>
-            {% endif %}
-        </div>
-        {% endif %}
 
 
         <div class="container">   
