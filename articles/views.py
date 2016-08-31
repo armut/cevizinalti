@@ -18,6 +18,7 @@ class HomePageView(TemplateView):
         context['posts'] = Post.objects.all().order_by('-date')
         context['popular_posts'] = Post.objects.all().order_by('-view_count')[:3]
         context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
+        context['genre_in_question'] = 'home'
         return context
 
 
@@ -28,7 +29,7 @@ class CategoryView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
-        context['genre'] = self.object.name
+        context['genre_in_question'] = self.object
         context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['othergenres'] = Genre.objects.all().exclude(name=self.object.name).annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['description'] = self.object.description
@@ -45,6 +46,7 @@ class PostView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(PostView, self).get_context_data(**kwargs)
         context['post'] = self.object
+        context['genre_in_question'] = self.object.genre
         context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['comments'] = Comment.objects.filter(post=self.object)
 

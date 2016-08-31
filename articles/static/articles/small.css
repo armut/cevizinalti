@@ -9,12 +9,20 @@ body {
     padding: 0;
 }
 
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
 #entree {
     background-color: crimson;
     margin: 0 auto;
     height: 175px;
 }
 #entree-logo {
+    margin: auto;
+    max-width: 250px;
+    padding: 10px;
 }
 #entree-motto {
 }
@@ -36,14 +44,28 @@ body {
     border-bottom: 5px solid crimson;
     display: inline-block;
     margin-left: -4px;
-    margin-top: -5px;
+    margin-top: -1px;
     background-color: #009999;
     color: white;
-    padding: 10px;
+    padding: 7px;
     text-decoration: none;
 }
 .navbar-item:hover {
     background-color: #600000;
+}
+
+.navbar-item-selected {
+    border-bottom: 5px solid #009999;
+    display: inline-block;
+    margin-left: -4px;
+    margin-top: -1px;
+    background-color: #600000;
+    color: white;
+    padding: 7px;
+    text-decoration: none;
+}
+.navbar-item-selected:hover {
+    border-bottom: 5px solid #600000;
 }
 /* navbar */
 

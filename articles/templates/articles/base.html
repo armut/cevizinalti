@@ -16,6 +16,9 @@
     <body>
         <div id="entree">
             <div id="entree-logo">
+                <a href="{% url 'articles:home' %}">
+                    <img src="{% static 'articles/images/logo.png' %}">
+                </a>
             </div>
             
             <div id="entree-motto">
@@ -27,10 +30,23 @@
 
         <div class="navbar">
             <div class="navbar-menu">
-                <a class="navbar-item" href="{% url 'articles:home' %}">Home</a>
+                
+                <!-- Are we home? -->
+                {% if genre_in_question == 'home' %}
+                    <a class="navbar-item-selected" href="{% url 'articles:home' %}">Home</a>
+                {% else %}
+                    <a class="navbar-item" href="{% url 'articles:home' %}">Home</a>
+                {% endif %}
+
                 {% for genre in genres %}
-                    <a class="navbar-item" href="{{ genre.get_absolute_url }}">{{ genre.name }}</a>
+                    <!-- In which genre are we in? -->
+                    {% if genre.name == genre_in_question.name %}
+                        <a class="navbar-item-selected" href="{{ genre.get_absolute_url }}">{{ genre.name }}</a>
+                    {% else %}
+                        <a class="navbar-item" href="{{ genre.get_absolute_url }}">{{ genre.name }}</a>
+                    {% endif %}
                 {% endfor %}
+
             </div>
         </div>
 

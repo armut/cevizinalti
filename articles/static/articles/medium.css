@@ -9,12 +9,19 @@ body {
     padding: 0;
 }
 
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
 #entree {
     background-color: crimson;
     margin: 0 auto;
     height: 175px;
 }
 #entree-logo {
+    max-width: 270px;
+    padding: 10px;
 }
 #entree-motto {
 }
@@ -23,20 +30,20 @@ body {
 
 /* navbar */
 .navbar {
-    background-color: peachpuff;
+    background-color: crimson;
     height: 50%;
     padding: 1px;
 }
 .navbar-menu {
     margin: 0 auto;
-    text-align: center;
+    text-align: right;
     max-width: 75%;
 }
 .navbar-item {
     border-bottom: 5px solid crimson;
     display: inline-block;
     margin-left: -4px;
-    margin-top: -5px;
+    margin-top: -1px;
     background-color: #009999;
     color: white;
     padding: 10px;
@@ -44,6 +51,20 @@ body {
 }
 .navbar-item:hover {
     background-color: #600000;
+}
+
+.navbar-item-selected {
+    border-bottom: 5px solid #009999;
+    display: inline-block;
+    margin-left: -4px;
+    margin-top: -1px;
+    background-color: #600000;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+.navbar-item-selected:hover {
+    border-bottom: 5px solid #600000;
 }
 /* navbar */
 
