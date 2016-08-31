@@ -13,7 +13,7 @@
             {% for post in posts %}
                 <div class="post-preview">
                     <a class="post-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                    <small class="post-description">{{ post.author }} | {{ post.view_count }} views.</small>
+                    <small class="post-description">{{ post.author }}   {{ post.view_count }} views.</small>
                     <p class="post-truncated">{{ post.content|truncatewords:40 }}</p>
                 </div>
             {% endfor %}
@@ -24,7 +24,7 @@
                 <h3>Other categories:</h3>
                 <ul>
                 {% for g in genres %}
-                    <li><a href="{{ g.get_absolute_url }}">{{ g.name }}</a></li>
+                    <li><a href="{{ g.get_absolute_url }}">{{ g.name }}</a><small>({{ g.posts_in_this_genre }})</small></li>
                 {% endfor %}
                 </ul>
             </div>

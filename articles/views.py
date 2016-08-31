@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Count
 
 from django.contrib.auth.models import User
 from articles.models import Genre, Post, Comment
@@ -14,7 +15,9 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
-        context['posts'] = Post.objects.all().order_by('-view_count')
+        context['posts'] = Post.objects.all().order_by('-date')
+        context['popular_posts'] = Post.objects.all().order_by('-view_count')[:3]
+        context['genres'] = Genre.objects.annotate(posts_in_this_genre=Count('post'))
         return context
 
 
@@ -26,7 +29,7 @@ class CategoryView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
         context['genre'] = self.object.name
-        context['genres'] = Genre.objects.all().exclude(name=self.object.name).order_by('name')
+        context['genres'] = Genre.objects.all().exclude(name=self.object.name).annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['description'] = self.object.description
         context['posts'] = Post.objects.filter(genre=self.object).order_by('-view_count')
         context['comments'] = Comment.objects.filter(post__genre=self.object)[:3]
