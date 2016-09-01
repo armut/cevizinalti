@@ -25,14 +25,19 @@
             <div id="entree-right">
                 <div class="div-form">
                     {% if not request.user.is_authenticated %}
-                        <form>{% csrf_token %}
+                        <form id="login-form">{% csrf_token %}
                             <input id="uid" type="text" name="uid" placeholder="Username">
                             <input id="pass" type="text" name="pass" placeholder="Password">
-                            <input class="login_btn" type="button" value="LogIn">
+                            <input class="login_btn" type="button" value="Login">
                         </form>
                     {% else %}
-                        <a id="user-link" href="{% url 'articles:user' request.user.id  %}">{{ request.user.username }}</a>
-                        <input class="logout_btn" type="button" value="LogOut">
+                        <div class="usermenu">
+                            <a href="#">New Article</a>
+                            <a href="#">My Articles</a>
+                            <a href="#">Favorites</a>
+                            <a href="{% url 'articles:user' request.user.id  %}">{{ request.user.username }}</a>
+                            <input class="logout_btn" type="button" value="Logout">
+                        </div>
                     {% endif %}
                 </div>
             </div>

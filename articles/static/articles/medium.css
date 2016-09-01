@@ -20,7 +20,7 @@ img {
     height: 175px;
 }
 #entree-logo {
-    max-width: 249px;
+    height: 85%;
     padding: 10px;
     float: left;
 }
@@ -68,7 +68,7 @@ img {
 }
 .logout_btn {
     margin: 10px 10px 0 0;
-    background-color: crimson;
+    background-color: #990000;
     color: white;
     border-radius: 5px;
     border: none;
@@ -76,10 +76,15 @@ img {
     cursor: pointer;
     padding: 3px;
 }
-.logout_btn:hover {
-    background-color: #990000;
+.usermenu a {
+    font-style: italic;
+    margin: 0 5px 0 5px;
+    text-decoration: none;
+    color: white;
+    padding: 4px;
 }
-#user-link {
+.usermenu a:hover {
+    border-bottom: 4px solid #990000;
 }
 /* login form */
 

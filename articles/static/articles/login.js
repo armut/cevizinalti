@@ -2,7 +2,7 @@ function login() {
     $.ajax({
         url: "/login",
         type: "POST",
-        data: $("#login_form").serialize(),
+        data: $("#login-form").serialize(),
         success: function() {
             location.reload(true);
         },
@@ -44,5 +44,7 @@ $(document).ready(function() {
 
     $(".logout_btn").click(function(e) {
         logout();
-    });
+    });        
+
+    
 });
