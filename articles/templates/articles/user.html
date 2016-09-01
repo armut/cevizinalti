@@ -1,24 +1,36 @@
 {% extends 'articles/base.html' %}
-{% block title %}{{ user.username }}'s page {% endblock %}
+{% block title %}
+    {% if request.user.is_authenticated %}
+        My Page | {{ request.user.username }}
+    {% else %}
+        {{ request.user.username }}'s page 
+    {% endif %}
+{% endblock %}
 
 {% block content %}
-    <h1 style="text-align: right">{{ user.username }}</h1>
-    <hr>
-    {% if posts %}
-        <h2>Your Posts:</h2>
-        {% for post in posts %}
-            <h3>{{ post.title }}</h3>
-            <i>{{ post.view_count }} views</i>
-            <p>{{ post.content }}</p>
-            <hr>
-        {% endfor %}
-    {% endif %}
+    <div class="selamlik">
+        <h2 style="text-align: center">{{ user.username }}</h2>
+        <hr>
+    </div>
 
-    {% if comments %}
-        <h2>Your Comments:</h2>
-        {% for comment in comments %}
-            <p>@{{ comment.post.title }} you wrote:</p>
-            <p>{{ comment.comment_text }}</p>
-        {% endfor %}
-    {% endif %}
+    <div class="coasts">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="post-preview">
+                    <a class="post-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    <small class="post-description">{{ post.view_count }} views.</small>
+                    <a href="#">( Edit )</a>
+                    <p class="post-truncated">{{ post.content|truncatewords:40 }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if comments %}
+            <h2>Comments:</h2>
+            {% for comment in comments %}
+                <p>@{{ comment.post.title }} you wrote:</p>
+                <p>{{ comment.comment_text }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}

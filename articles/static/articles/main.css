@@ -1,8 +1,8 @@
 /*
 font-family: 'Lobster', cursive;
-font-family: 'Orbitron', sans-serif;
 font-family: 'Dosis', sans-serif;
 font-family: 'Vollkorn', serif;
+font-family: 'Raleway', sans-serif;
 */
 
 html {
@@ -19,6 +19,12 @@ body {
 img {
     max-height: 100%;
     max-width: 100%;
+}
+
+hr {
+    height: 3px;
+    border: none;
+    background-color: crimson;
 }
 
 #entree {
@@ -250,3 +256,6 @@ div#eastcoast {
     border-left: 4px solid sienna;
 }
 /* home.html */
+
+/* user.html */
+/* user.html */

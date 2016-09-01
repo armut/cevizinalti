@@ -1,10 +1,10 @@
 {% extends 'articles/base.html' %}
-{% block title %}Home Page{% endblock %}
+{% block title %}{{ genre_in_question }} - My Cool Blog{% endblock %}
 
 {% block content %}
 
     <div class="selamlik">
-        <h3>Wanna read something about {{ genre }} ?</h3>
+        <h3>Wanna read something about {{ genre_in_question }} ?</h3>
         <p>{{ description }}</p>
     </div>
 
