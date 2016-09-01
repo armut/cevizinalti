@@ -33,7 +33,6 @@
                     {% else %}
                         <div class="usermenu">
                             <a href="#">New Article</a>
-                            <a href="#">My Articles</a>
                             <a href="#">Favorites</a>
                             <a href="{% url 'articles:user' request.user.id  %}">{{ request.user.username }}</a>
                             <input class="logout_btn" type="button" value="Logout">

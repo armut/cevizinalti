@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Count
 
 from django.contrib.auth.models import User
-from articles.models import Genre, Post, Comment
+from articles.models import Whoami, Genre, Post, Comment
 
 class HomePageView(TemplateView):
     template_name = "articles/home.html"
@@ -68,6 +68,12 @@ class UserView(generic.DetailView):
         context['posts'] = Post.objects.filter(author=self.object).order_by("-view_count")
         context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['comments'] = Comment.objects.filter(user=self.object)
+
+        try:
+            context['whoami'] = Whoami.objects.filter(author=self.object)[0]
+        except IndexError:
+            context['whoami'] = None
+
         return context
 
 @require_http_methods(['POST'])

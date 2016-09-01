@@ -39,4 +39,10 @@ class Comment(models.Model):
         return self.post.title + " ~ "  + self.comment_text[:20] + "..." 
 
 
+class Whoami(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    short_bio = models.TextField()
+
+    def __str__(self):
+        return (self.short_bio[:10] + "...")
 
