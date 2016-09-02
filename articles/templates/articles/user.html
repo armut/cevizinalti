@@ -27,7 +27,7 @@
                     {% if post.author.username == request.user.username %}
                         <a href="#">( Edit )</a>
                     {% endif %}
-                    <p class="post-truncated">{{ post.content|truncatewords:40 }}</p>
+                    <p class="post-truncated">{{ post.description|safe }}</p>
                 </div>
             {% endfor %}
         {% endif %}

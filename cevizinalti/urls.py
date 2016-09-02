@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('articles.urls')) 
+    url(r'^', include('articles.urls')),
+    url(r'^froala_editor/', include('froala_editor.urls'))
 ]

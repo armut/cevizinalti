@@ -14,7 +14,7 @@
                 <div class="post-preview">
                     <a class="post-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                     <small class="post-description">{{ post.author }}   {{ post.view_count }} views.</small>
-                    <p class="post-truncated">{{ post.content|truncatewords:40 }}</p>
+                    <p class="post-truncated">{{ post.description|safe }}</p>
                 </div>
             {% endfor %}
         </div>
