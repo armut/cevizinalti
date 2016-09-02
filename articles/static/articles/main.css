@@ -151,14 +151,14 @@ div#westcoast {
 }
 
 .post-title {
+    line-height: 0.5;
     font-family: 'Lobster', cursive;
-    font-size: 20px;
+    font-size: 23px;
     max-width: 570px;
     max-height: 380px;
     border-radius: 6px;
     padding-left: 6px;
-    margin-left: 100px;
-    margin-top: 30px;
+    margin: 30px 0px 0px 100px;
 }
 .post-body {
     font-family: 'Dosis', sans-serif;

@@ -130,12 +130,11 @@ img {
 /* navbar */
 
 .post-title {
+    line-height: 0.5;
     font-family: 'Lobster', cursive;
-    font-size: 15px;
+    font-size: 20px;
     padding-left: 6px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
+    margin: 5px 5px 50px 5px;
 }
 .post-body {
     font-family: 'Dosis', sans-serif;

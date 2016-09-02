@@ -15,7 +15,7 @@
             {% for post in posts %}
                 <div class="post-preview">
                     <a class="post-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                    <small class="post-description">{{ post.author }}   {{ post.view_count }} views.</small>
+                    <small class="post-description">{{ post.author }}  {{ post.date.day }}/{{ post.date.month }}/{{ post.date.year }} - {{ post.view_count }} views.</small>
                     <p class="post-truncated">{{ post.description|safe }}</p>
                 </div>
             {% endfor %}

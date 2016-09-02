@@ -25,7 +25,7 @@
                     <a class="post-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                     <small class="post-description">{{ post.view_count }} views.</small>
                     {% if post.author.username == request.user.username %}
-                        <a href="#">( Edit )</a>
+                        <a href="{% url 'admin:articles_post_change' post.id  %}">( Edit )</a>
                     {% endif %}
                     <p class="post-truncated">{{ post.description|safe }}</p>
                 </div>
