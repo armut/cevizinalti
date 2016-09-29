@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Count
 
 from django.contrib.auth.models import User
-from articles.models import Whoami, Genre, Post, Comment
+from articles.models import Fav, Whoami, Genre, Post, Comment
 
 class HomePageView(TemplateView):
     template_name = "articles/home.html"
@@ -76,6 +76,7 @@ class UserView(generic.DetailView):
 
         return context
 
+
 @require_http_methods(['POST'])
 def loginView(request):
     uid = request.POST.get('uid')
@@ -102,5 +103,14 @@ def logoutView(request):
     return JsonResponse({"msg": msg})
     
 
-    
-
+@csrf_exempt
+@require_http_methods(['POST'])
+def fav(request, **kwargs):
+    msg = ""
+    try:
+        Fav.objects.get(author=request.user, post__slug=kwargs["slug"]).delete()
+        msg = "Successfully unfav'd"
+    except:
+        Fav(author=request.user, post=Post.objects.get(slug=kwargs["slug"])).save()
+        msg = "Successfully fav'd"
+    return JsonResponse({"msg": msg})
