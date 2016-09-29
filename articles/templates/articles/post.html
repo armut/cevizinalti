@@ -12,6 +12,7 @@
                 {% endif %}
                 <h4 style="font-weight: normal">{{ post.author }}, on {{ post.date }}</h4>
                 <h3 style="font-weight: normal"><a href="{{ post.genre.get_absolute_url }}">{{ post.genre }}</a></h5>
+                <img class="banner" src="{{ images.0.image.url }}">
             </div>
 
             <div class="post-body">

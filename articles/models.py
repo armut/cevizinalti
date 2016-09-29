@@ -46,6 +46,13 @@ class Post(models.Model):
         return self.title
 
 
+class Image(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    image = models.ImageField(blank=True, null=True, upload_to='post/%Y/%m/%d/')
+
+    def __str__(self):
+        return self.post.title
+
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -70,3 +77,4 @@ class Fav(models.Model):
 
     def __str__(self):
         return (self.author.username + "  [<3]  " + self.post.title)
+

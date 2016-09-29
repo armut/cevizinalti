@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Genre, Whoami, Fav
+from .models import Post, Comment, Genre, Whoami, Fav, Image
 
 class FilterUsers(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
@@ -36,4 +36,5 @@ admin.site.register(Comment)
 admin.site.register(Genre, GenreAdmin)
 admin.site.register(Whoami, WhoamiAdmin)
 admin.site.register(Fav, FavAdmin)
+admin.site.register(Image)
 

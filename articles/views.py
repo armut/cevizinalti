@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Count
 
 from django.contrib.auth.models import User
-from articles.models import Fav, Whoami, Genre, Post, Comment
+from articles.models import Image, Fav, Whoami, Genre, Post, Comment
 
 class HomePageView(TemplateView):
     template_name = "articles/home.html"
@@ -46,6 +46,7 @@ class PostView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(PostView, self).get_context_data(**kwargs)
         context['post'] = self.object
+        context['images'] = Image.objects.filter(post=self.object)
         context['genre_in_question'] = self.object.genre
         context['genres'] = Genre.objects.all().annotate(posts_in_this_genre=Count('post')).order_by('name')
         context['comments'] = Comment.objects.filter(post=self.object)
