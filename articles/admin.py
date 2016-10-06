@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Post, Comment, Genre, Whoami, Fav, Image
 
+
 class FilterUsers(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.user = request.user
@@ -29,6 +30,10 @@ class WhoamiAdmin(FilterUsers):
 
 class FavAdmin(FilterUsers):
     pass
+
+class ImageAdmin(FilterUsers):
+    pass
+        
 
 
 admin.site.register(Post, PostAdmin)
